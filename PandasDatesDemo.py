@@ -32,6 +32,8 @@ AO = Series(ao[:,2], index=dates)  #create series with dates as index
 AO
 
 AO.plot()                        #plot all the data
+
+
 AO['1980':'1990'].plot()         #plot some of the data
 AO['1980-05':'1981-03'].plot()
 AO['2010':'2020'].plot() 
@@ -124,8 +126,17 @@ aonao.AO.rolling(window=120).corr(other=aonao.NAO).plot(style='-g')   #moving co
 
 aonao.corr()
 
+#plots for submission
+import matplotlib.pyplot as plt
 
+plt.plot(AO)  
+plt.ylabel('Arctic Oscillation (AO)')
+plt.savefig('Complete-AO-plot.png')
 
+AO_mm = AO.resample("A").median()
+plt.plot(AO_mm)
+plt.savefig('Annual-AO-medians-plot.png')
 
-
-
+plt.plot()
+aonao.rolling(window=12, center=False).mean().plot(style='-g')
+plt.savefig('Rolling-mean-for-AO-and-NAO-plot.png')
