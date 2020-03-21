@@ -50,7 +50,7 @@ SF_daily = SF.resample('D').sum()    #resample to get total daily streamflow
 plt.plot(SF_daily)
 plt.xlabel('year-month')
 plt.ylabel('cfs')
-plt.savefig('Daily-streamflow-plot.pdf', bbox_inches='tight')
+plt.savefig('Plot1-Daily-streamflow.pdf', bbox_inches='tight')
 
 
 
@@ -62,15 +62,16 @@ plt.scatter(top_10.index,top_10, marker='D', facecolors='none', edgecolors='k')
 plt.xlabel('year-month')
 plt.ylabel('cfs')
 #plt.plot(SF_daily, 'w')
-plt.savefig('Highest-streamflow-days.pdf', bbox_inches='tight')
+plt.savefig('Plot2-Highest-streamflow-days.pdf', bbox_inches='tight')
 
 
 #Monthly average streamflow
 SF_monthly = SF_daily.resample('M').mean()    #resample to get monthly average streamflow
 
+plt.figure()
 plt.plot(SF_monthly)
 plt.xlabel('year-month')
 plt.ylabel('cfs')
-plt.savefig('Monthly-avg-streamflow-plot.pdf', bbox_inches='tight')
+plt.savefig('Plot3-Monthly-avg-streamflow.pdf', bbox_inches='tight')
 
 
