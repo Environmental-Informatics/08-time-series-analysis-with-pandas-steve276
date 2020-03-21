@@ -55,7 +55,14 @@ plt.savefig('Daily-streamflow-plot.pdf', bbox_inches='tight')
 
 
 #10 days with highest flow on same time axis as full daily record
+top_10 = SF_daily.nlargest(10)          #identify the 10 days with highest flow
 
+plt.figure(figsize=(8,6))
+plt.scatter(top_10.index,top_10, marker='D', facecolors='none', edgecolors='k')
+plt.xlabel('year-month')
+plt.ylabel('cfs')
+#plt.plot(SF_daily, 'w')
+plt.savefig('Highest-streamflow-days.pdf', bbox_inches='tight')
 
 
 #Monthly average streamflow
